@@ -32,6 +32,12 @@
                     <span class="link-title">Rukun Tetangga (RT)</span>
                 </a>
             </li>
+            <li class="nav-item {{ Request::segment(2) == 'user' ? 'active' : '' }}">
+                <a href="{{ route('user') }}" class="nav-link">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Kelola Pengguna</span>
+                </a>
+            </li>
 
         </ul>
     </div>

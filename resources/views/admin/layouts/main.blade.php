@@ -47,8 +47,8 @@
                                         <img src="https://via.placeholder.com/80x80" alt="">
                                     </div>
                                     <div class="info text-center">
-                                        <p class="name font-weight-bold mb-0">Amiah Burton</p>
-                                        <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                                        <p class="name font-weight-bold mb-0">{{ auth()->user()->name }}</p>
+                                        <p class="email text-muted mb-3">{{ auth()->user()->email }}</p>
                                     </div>
                                 </div>
                                 <div class="dropdown-body">
@@ -88,6 +88,7 @@
 
             <!-- partial:partials/_footer.html -->
             <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
+                Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear())
                 </script> All rights reserved</p>
@@ -104,7 +105,6 @@
             $(function() {
                 toastr.error('{{ session('error') }}')
             })
-
         </script>
     @endif
     @if (session('success'))
@@ -112,7 +112,6 @@
             $(function() {
                 toastr.success('{{ session('success') }}')
             })
-
         </script>
     @endif
 

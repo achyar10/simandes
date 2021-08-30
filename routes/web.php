@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterRtController;
@@ -54,4 +55,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/rt/import', [MasterRtController::class, 'import']);
     Route::post('/rt/import', [MasterRtController::class, 'processImport']);
     Route::get('/rt/download', [MasterRtController::class, 'template_excel']);
+
+    // User
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/user/create', [UserController::class, 'create']);
+    Route::post('/user', [UserController::class, 'store']);
+    Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+    Route::put('/user/{id?}', [UserController::class, 'update'])->name('user');
+    Route::delete('/user', [UserController::class, 'destroy'])->name('user');
+    Route::get('/user/{id}/rpw', [UserController::class, 'rpw']);
+    Route::put('/user/{id}/rpw', [UserController::class, 'reset']);
 });

@@ -30,22 +30,22 @@ class CreateCitizensTable extends Migration
 
         Schema::table('citizens', function (Blueprint $table) {
             $table->foreignId('education_id')
+                ->nullable()
                 ->constrained('education')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('work_id')
+                ->nullable()
                 ->constrained('works')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('rw_id')
-                ->constrained('master_rws')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->foreignId('rt_id')
+                ->nullable()
                 ->constrained('master_rts')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('family_id')
+                ->nullable()
                 ->constrained('family_cards')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
@@ -62,10 +62,9 @@ class CreateCitizensTable extends Migration
         Schema::table('citizens', function (Blueprint $table) {
             $table->dropForeign(['education_id']);
             $table->dropForeign(['work_id']);
-            $table->dropForeign(['rw_id']);
             $table->dropForeign(['rt_id']);
             $table->dropForeign(['family_id']);
-            $table->dropColumn(['education_id', 'work_id', 'rw_id', 'rt_id', 'family_id']);
+            $table->dropColumn(['education_id', 'work_id', 'rt_id', 'family_id']);
         });
         Schema::dropIfExists('citizens');
     }

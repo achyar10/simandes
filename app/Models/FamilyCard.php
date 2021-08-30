@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class FamilyCard extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function rt()
+    {
+        return $this->belongsTo(MasterRt::class);
+    }
 }
