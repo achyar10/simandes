@@ -19,6 +19,13 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+            <li class="nav-item nav-category">Kependudukan</li>
+            <li class="nav-item {{ Request::segment(2) == 'familycard' ? 'active' : '' }}">
+                <a href="{{ route('familycard') }}" class="nav-link">
+                    <i class="link-icon" data-feather="file-text"></i>
+                    <span class="link-title">Kartu Keluarga</span>
+                </a>
+            </li>
             <li class="nav-item nav-category">Master Data</li>
             <li class="nav-item {{ Request::segment(2) == 'rw' ? 'active' : '' }}">
                 <a href="{{ route('rw') }}" class="nav-link">

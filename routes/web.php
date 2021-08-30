@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FamilyCardController;
 use App\Http\Controllers\MasterRtController;
 use App\Http\Controllers\MasterRwController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,17 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/rt/import', [MasterRtController::class, 'import']);
     Route::post('/rt/import', [MasterRtController::class, 'processImport']);
     Route::get('/rt/download', [MasterRtController::class, 'template_excel']);
+
+    // Family Card
+    Route::get('/familycard', [FamilyCardController::class, 'index'])->name('familycard');
+    Route::get('/familycard/create', [FamilyCardController::class, 'create']);
+    Route::post('/familycard', [FamilyCardController::class, 'store']);
+    Route::get('/familycard/{id}/edit', [FamilyCardController::class, 'edit']);
+    Route::put('/familycard/{id?}', [FamilyCardController::class, 'update'])->name('familycard');
+    Route::delete('/familycard', [FamilyCardController::class, 'destroy'])->name('familycard');
+    Route::get('/familycard/import', [FamilyCardController::class, 'import']);
+    Route::post('/familycard/import', [FamilyCardController::class, 'processImport']);
+    Route::get('/familycard/download', [FamilyCardController::class, 'template_excel']);
 
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user');

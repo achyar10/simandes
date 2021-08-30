@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MasterRt;
+use App\Models\FamilyCard;
 use App\Models\MasterRw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class MasterRtController extends Controller
+class FamilyCardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class MasterRtController extends Controller
      */
     public function index()
     {
-        $data['rts'] = MasterRt::with('rw')->paginate(5);
-        return view('admin.rt.index', $data);
+        $data['familycards'] = FamilyCard::paginate(5);
+        return view('admin.familycard.index', $data);
     }
 
     /**
@@ -28,7 +28,7 @@ class MasterRtController extends Controller
     public function create()
     {
         $data['rws'] = MasterRw::all();
-        return view('admin.rt.create', $data);
+        return view('admin.familycard.create', $data);
     }
 
     /**
@@ -40,15 +40,15 @@ class MasterRtController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'rw_id' => 'required',
-            'number' => 'required',
-            'pic' => 'required',
-            'phone' => 'required',
+            'rt_id' => 'required',
+            'number' => 'required|unique:family_cards',
+            'head_of_family' => 'required',
+            'address' => 'required',
+            'print_date' => 'required',
+            'zip' => 'required',
         ]);
-        $data['email'] = 'ketuart' . $request->number . '@waringinjaya.id';
-        $data['password'] = Hash::make('12345678');
-        MasterRt::create($data);
-        return redirect()->route('rt')->with('success', 'Data berhasil ditambah');
+        FamilyCard::create($data);
+        return redirect()->route('familycard')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -60,8 +60,8 @@ class MasterRtController extends Controller
     public function edit($id)
     {
         $data['rws'] = MasterRw::all();
-        $data['rt'] = MasterRt::find($id);
-        return view('admin.rt.edit', $data);
+        $data['familycard'] = FamilyCard::find($id);
+        return view('admin.familycard.edit', $data);
     }
 
     /**
@@ -74,12 +74,14 @@ class MasterRtController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'rw_id' => 'required',
-            'pic' => 'required',
-            'phone' => 'required',
+            'rt_id' => 'required',
+            'head_of_family' => 'required',
+            'address' => 'required',
+            'print_date' => 'required',
+            'zip' => 'required',
         ]);
-        MasterRt::where('id', $id)->update($data);
-        return redirect()->route('rt')->with('success', 'Data berhasil diubah');
+        FamilyCard::where('id', $id)->update($data);
+        return redirect()->route('familycard')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -90,14 +92,14 @@ class MasterRtController extends Controller
      */
     public function destroy(Request $request)
     {
-        MasterRt::destroy($request->id);
-        return redirect()->route('rt')->with('success', 'Data berhasil dihapus');
+        FamilyCard::destroy($request->id);
+        return redirect()->route('familycard')->with('success', 'Data berhasil dihapus');
     }
 
     public function import()
     {
         $data['rws'] = MasterRw::all();
-        return view('admin.rt.import', $data);
+        return view('admin.familycard.import', $data);
     }
 
     public function template_excel()
@@ -127,7 +129,7 @@ class MasterRtController extends Controller
                 'updated_at' => date('Y-m-d H:i:s')
             ];
         }
-        MasterRt::insertOrIgnore($arr);
-        return redirect()->route('rt')->with('success', 'Upload data selesai');
+        FamilyCard::insertOrIgnore($arr);
+        return redirect()->route('familycard')->with('success', 'Upload data selesai');
     }
 }
