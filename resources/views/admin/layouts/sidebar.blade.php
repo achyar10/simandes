@@ -26,6 +26,12 @@
                     <span class="link-title">Kartu Keluarga</span>
                 </a>
             </li>
+            <li class="nav-item {{ Request::segment(2) == 'citizen' ? 'active' : '' }}">
+                <a href="{{ route('citizen') }}" class="nav-link">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Warga</span>
+                </a>
+            </li>
             <li class="nav-item nav-category">Master Data</li>
             <li class="nav-item {{ Request::segment(2) == 'rw' ? 'active' : '' }}">
                 <a href="{{ route('rw') }}" class="nav-link">

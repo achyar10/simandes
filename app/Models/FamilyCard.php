@@ -15,4 +15,9 @@ class FamilyCard extends Model
     {
         return $this->belongsTo(MasterRt::class);
     }
+
+    public function citizens()
+    {
+        return $this->hasMany(Citizen::class);
+    }
 }

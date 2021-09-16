@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CitizenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FamilyCardController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MasterRtController;
 use App\Http\Controllers\MasterRwController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('admin/dashboard');
-});
+Route::get('/', [LandingController::class, 'index']);
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/auth/login', [AuthController::class, 'index'])->name('login');
@@ -67,6 +67,17 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/familycard/import', [FamilyCardController::class, 'import']);
     Route::post('/familycard/import', [FamilyCardController::class, 'processImport']);
     Route::get('/familycard/download', [FamilyCardController::class, 'template_excel']);
+
+    // Citizens
+    Route::get('/citizen', [CitizenController::class, 'index'])->name('citizen');
+    Route::get('/citizen/create', [CitizenController::class, 'create']);
+    Route::post('/citizen', [CitizenController::class, 'store'])->name('citizen');
+    Route::get('/citizen/{id}/edit', [CitizenController::class, 'edit']);
+    Route::put('/citizen/{id?}', [CitizenController::class, 'update'])->name('citizen');
+    Route::delete('/citizen', [CitizenController::class, 'destroy'])->name('citizen');
+    Route::get('/citizen/import', [CitizenController::class, 'import']);
+    Route::post('/citizen/import', [CitizenController::class, 'processImport']);
+    Route::get('/citizen/download', [CitizenController::class, 'template_excel']);
 
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user');

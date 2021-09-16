@@ -21,6 +21,7 @@ class CreateCitizensTable extends Migration
             $table->enum('gender', ['LAKI-LAKI', 'PEREMPUAN']);
             $table->string('pob');
             $table->date('dob');
+            $table->text('address');
             $table->string('relationship');
             $table->enum('religion', ['ISLAM', 'KRISTEN', 'KATHOLIK', 'HINDU', 'BUDHA', 'KHONGHUCU']);
             $table->string('blood_type')->nullable();

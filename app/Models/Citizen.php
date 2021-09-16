@@ -15,4 +15,9 @@ class Citizen extends Model
     {
         return $this->belongsTo(MasterRt::class);
     }
+
+    public function family()
+    {
+        return $this->belongsTo(FamilyCard::class);
+    }
 }
