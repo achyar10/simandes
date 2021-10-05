@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CitizenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FamilyCardController;
@@ -88,4 +89,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::delete('/user', [UserController::class, 'destroy'])->name('user');
     Route::get('/user/{id}/rpw', [UserController::class, 'rpw']);
     Route::put('/user/{id}/rpw', [UserController::class, 'reset']);
+
+    // Banner
+    Route::get('/banner', [BannerController::class, 'index'])->name('banner');
+    Route::get('/banner/create', [BannerController::class, 'create']);
+    Route::post('/banner', [BannerController::class, 'store']);
+    Route::get('/banner/{id}/edit', [BannerController::class, 'edit']);
+    Route::put('/banner/{id?}', [BannerController::class, 'update'])->name('user');
+    Route::delete('/banner', [BannerController::class, 'destroy'])->name('usbannerer');
 });

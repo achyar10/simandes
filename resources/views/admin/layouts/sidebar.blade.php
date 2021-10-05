@@ -19,6 +19,13 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+            <li class="nav-item nav-category">Web</li>
+            <li class="nav-item {{ Request::segment(2) == 'banner' ? 'active' : '' }}">
+                <a href="{{ route('banner') }}" class="nav-link">
+                    <i class="link-icon" data-feather="image"></i>
+                    <span class="link-title">Banner</span>
+                </a>
+            </li>
             <li class="nav-item nav-category">Kependudukan</li>
             <li class="nav-item {{ Request::segment(2) == 'familycard' ? 'active' : '' }}">
                 <a href="{{ route('familycard') }}" class="nav-link">
