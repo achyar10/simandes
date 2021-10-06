@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
@@ -95,6 +96,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/banner/create', [BannerController::class, 'create']);
     Route::post('/banner', [BannerController::class, 'store']);
     Route::get('/banner/{id}/edit', [BannerController::class, 'edit']);
-    Route::put('/banner/{id?}', [BannerController::class, 'update'])->name('user');
-    Route::delete('/banner', [BannerController::class, 'destroy'])->name('usbannerer');
+    Route::put('/banner/{id?}', [BannerController::class, 'update'])->name('banner');
+    Route::delete('/banner', [BannerController::class, 'destroy'])->name('banner');
+
+    // Category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category');
+    Route::get('/category/create', [CategoryController::class, 'create']);
+    Route::post('/category', [CategoryController::class, 'store']);
+    Route::get('/category/{id}/edit', [CategoryController::class, 'edit']);
+    Route::put('/category/{id?}', [CategoryController::class, 'update'])->name('category');
+    Route::delete('/category', [CategoryController::class, 'destroy'])->name('category');
 });
