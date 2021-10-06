@@ -1,10 +1,9 @@
 <footer class="footer">
     <div class="wrapper footer__wrap">
-        <div class="footer__head text-uppercase">Desa Waringin Jaya</div>
+        <div class="footer__head text-uppercase">{{config('setting.name')}}</div>
         <div class="footer__body">
-            <p><a href="https://goo.gl/maps/QVtSNqKmgkHTBUCN8" target="_blank">Jln. Trans Lembata Waikomo Timur -
-                    Waikomo Timur. Kabupaten Lembata, Provinsi: Nusa Tenggara Timur</a></p>
-            <p>No. Telp: +6281353967028 | Email : webdinas@gmail.com</p>
+            <p><a href="#" target="_blank">{{config('setting.name')}} {{config('setting.village')}} {{config('setting.subdistrict')}} {{config('setting.city')}} {{config('setting.province')}}</a></p>
+            <p>No. Telp: {{config('setting.phone')}} | Email : {{config('setting.email')}}</p>
         </div>
         <div class="footer__body">
             <div class="sosmed">
@@ -23,14 +22,11 @@
         <hr class="linefoot">
         <div class="footer__bottom">
             <div class="footer__bottomwrap">
-                <a target="_parent" href="halaman/detail/redaksi.html"> <i class=""></i> Redaksi </a> |
-                <a target="_parent" href="halaman/detail/syarat-dan-kondisi.html"> <i class=""></i> Syarat &
-                    Kondisi </a> |
-                <a target="_parent" href="petasitus.html"> <i class=""></i> Peta Situs </a> |
-                &copy; <script>document.write(new Date().getFullYear())</script> - Desa Waringin Jaya
+                Copyright
+                &copy; <script>document.write(new Date().getFullYear())</script> - {{config('setting.name')}}
             </div>
             <div class="footer__bottomwrap">
-                Powered By <a href="https://datagoe.com"
+                Powered By <a href="https://achyar.my.id"
                     target="_blank"> Achyar Anshorie&trade; </a>
             </div>
         </div>

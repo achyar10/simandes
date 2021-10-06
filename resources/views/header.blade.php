@@ -108,12 +108,7 @@
 
                     </ul>
                 </li>
-                <input type="hidden" value="9" name="menu_id">
                 <li><a target="_parent" href="infografis.html"> <i class=""></i> Infografis </a></li>
-                <input type="hidden" value="11" name="menu_id">
-                <li><a target="_blank" href="https://datagoe.com"> <i class="fas fa-code"></i> Datagoe </a>
-                </li>
-                <input type="hidden" value="16" name="menu_id">
                 <li><a target="_parent" href="kritiksaran/suaraanda.html"> <i class="fas fa-comments"></i>
                         Suara Anda </a></li>
                 <li class="mt-3 p-0">
@@ -123,24 +118,6 @@
             </ul>
         </nav>
         <div class="caribahasa">
-            <div class="cari">
-                <div class="cari__wrap">
-                    <div class="cari__icon"><i class="fas fa-search"></i></div>
-                </div>
-                <div class="cari__form">
-                    <div class="cari__overlay"></div>
-
-                    <form action="cari.html" method="POST">
-                        <input type="hidden" name="csrf_test_name" value="b5e67453dc824b96dcd16902ad3d0ec6" />
-                        <div class="cari__form-inner">
-                            <input type="text" name="keyword" id="keyword" placeholder="Masukan Kata Kunci" autofocus
-                                autocomplete="off" required>
-                            <button type="submit" class="cari__btn" name="cari"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                    <div class="cari__close">&times;</div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
