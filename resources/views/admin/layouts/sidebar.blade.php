@@ -32,6 +32,12 @@
                     <span class="link-title">Kategori Berita</span>
                 </a>
             </li>
+            <li class="nav-item {{ Request::segment(2) == 'post' ? 'active' : '' }}">
+                <a href="{{ route('post') }}" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title">Artikel</span>
+                </a>
+            </li>
             <li class="nav-item nav-category">Kependudukan</li>
             <li class="nav-item {{ Request::segment(2) == 'familycard' ? 'active' : '' }}">
                 <a href="{{ route('familycard') }}" class="nav-link">

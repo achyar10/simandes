@@ -16,10 +16,12 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('template/assets/vendors/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/trix.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/vendors/toastr/toastr.min.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('template/assets/images/favicon.ico') }}" />
     <script src="{{ asset('template/assets/vendors/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('template/assets/js/trix.js') }}"></script>
 </head>
 
 <body>

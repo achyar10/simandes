@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/hooks/rt/{id}', [HookController::class, 'getRts']);
+
+Route::get('/hooks/slug', [HookController::class, 'checkSlug']);

@@ -10,6 +10,7 @@ use App\Http\Controllers\FamilyCardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MasterRtController;
 use App\Http\Controllers\MasterRwController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -106,4 +107,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/category/{id}/edit', [CategoryController::class, 'edit']);
     Route::put('/category/{id?}', [CategoryController::class, 'update'])->name('category');
     Route::delete('/category', [CategoryController::class, 'destroy'])->name('category');
+
+    // Post
+    Route::get('/post', [PostController::class, 'index'])->name('post');
+    Route::get('/post/create', [PostController::class, 'create']);
+    Route::post('/post', [PostController::class, 'store']);
+    Route::get('/post/{id}/edit', [PostController::class, 'edit']);
+    Route::put('/post/{id?}', [PostController::class, 'update'])->name('post');
+    Route::delete('/post', [PostController::class, 'destroy'])->name('post');
 });
